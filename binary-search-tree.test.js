@@ -57,33 +57,25 @@ describe("find", function () {
   });
 });
 
-/*describe("findRecursively", function() {
-  it("finds a node correctly", function() {
+describe("findRecursively", function () {
+  it("finds a node correctly", function () {
     let binarySearchTree = new BinarySearchTree();
-    binarySearchTree
-      .insert(15)
-      .insert(20)
-      .insert(10)
-      .insert(12);
+    binarySearchTree.insert(15).insert(20).insert(10).insert(12);
     var foundNode = binarySearchTree.findRecursively(20);
     expect(foundNode.val).toBe(20);
     expect(foundNode.left).toBe(null);
     expect(foundNode.right).toBe(null);
   });
 
-  it("returns undefined if a node is not found", function() {
+  it("returns undefined if a node is not found", function () {
     let binarySearchTree = new BinarySearchTree();
-    binarySearchTree
-      .insert(15)
-      .insert(20)
-      .insert(10)
-      .insert(12);
+    binarySearchTree.insert(15).insert(20).insert(10).insert(12);
     var foundNode = binarySearchTree.findRecursively(120);
     expect(foundNode).toBe(undefined);
   });
 });
 
-describe("dfsPreOrder", function() {
+/*describe("dfsPreOrder", function() {
   it("returns an array of values found with DFS Pre Order", function() {
     let binarySearchTree = new BinarySearchTree();
     binarySearchTree
