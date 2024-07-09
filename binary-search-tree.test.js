@@ -75,8 +75,8 @@ describe("findRecursively", function () {
   });
 });
 
-/*describe("dfsPreOrder", function() {
-  it("returns an array of values found with DFS Pre Order", function() {
+describe("dfsPreOrder", function () {
+  it("returns an array of values found with DFS Pre Order", function () {
     let binarySearchTree = new BinarySearchTree();
     binarySearchTree
       .insert(15)
@@ -90,8 +90,8 @@ describe("findRecursively", function () {
   });
 });
 
-describe("dfsInOrder", function() {
-  it("returns an array of values found with DFS In Order", function() {
+describe("dfsInOrder", function () {
+  it("returns an array of values found with DFS In Order", function () {
     let binarySearchTree = new BinarySearchTree();
     binarySearchTree
       .insert(15)
@@ -105,8 +105,8 @@ describe("dfsInOrder", function() {
   });
 });
 
-describe("dfsPostOrder", function() {
-  it("returns an array of values found with DFS Post Order", function() {
+describe("dfsPostOrder", function () {
+  it("returns an array of values found with DFS Post Order", function () {
     let binarySearchTree = new BinarySearchTree();
     binarySearchTree
       .insert(15)
@@ -120,7 +120,7 @@ describe("dfsPostOrder", function() {
   });
 });
 
-describe("BFS", function() {
+/*describe("BFS", function() {
   it("should return the correct output", function() {
     let binarySearchTree = new BinarySearchTree();
     binarySearchTree
