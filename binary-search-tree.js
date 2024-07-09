@@ -136,7 +136,33 @@ class BinarySearchTree {
   /** bfs(): Traverse the array using BFS.
    * Return an array of visited nodes. */
 
-  bfs() {}
+  bfs() {
+    const result = [];
+    const queue = [];
+
+    // Start with the root node
+    if (this.root) {
+      queue.push(this.root);
+    }
+
+    // While there are nodes to process
+    while (queue.length > 0) {
+      const currentNode = queue.shift(); // Dequeue the next node
+      result.push(currentNode.val); // Visit the node
+
+      // Enqueue the left child if it exists
+      if (currentNode.left) {
+        queue.push(currentNode.left);
+      }
+
+      // Enqueue the right child if it exists
+      if (currentNode.right) {
+        queue.push(currentNode.right);
+      }
+    }
+
+    return result;
+  }
 
   /** Further Study!
    * remove(val): Removes a node in the BST with the value val.
