@@ -160,7 +160,6 @@ class BinarySearchTree {
         queue.push(currentNode.right);
       }
     }
-
     return result;
   }
 
@@ -168,18 +167,113 @@ class BinarySearchTree {
    * remove(val): Removes a node in the BST with the value val.
    * Returns the removed node. */
 
-  remove(val) {}
+  remove(val) {
+    let removedNode = null;
+    this.root = this._removeRecursively(this.root, val, (node) => {
+      removedNode = node;
+    });
+    return removedNode;
+  }
+  _removeRecursively(node, val, callback) {
+    if (node === null) {
+      return null;
+    }
+
+    if (val < node.val) {
+      node.left = this._removeRecursively(node.left, val, callback);
+    } else if (val > node.val) {
+      node.right = this._removeRecursively(node.right, val, callback);
+    } else {
+      // Node with the value found, apply callback
+      callback(node);
+
+      // Node with only one child or no child
+      if (node.left === null) {
+        return node.right;
+      } else if (node.right === null) {
+        return node.left;
+      }
+
+      // Node with two children: Get the in-order successor (smallest in the right subtree)
+      let minNode = this._findMin(node.right);
+      node.val = minNode.val;
+      node.right = this._removeRecursively(node.right, minNode.val, () => {});
+    }
+
+    return node;
+  }
+
+  _findMin(node) {
+    while (node.left !== null) {
+      node = node.left;
+    }
+    return node;
+  }
 
   /** Further Study!
    * isBalanced(): Returns true if the BST is balanced, false otherwise. */
 
-  isBalanced() {}
+  isBalanced() {
+    return this._checkBalance(this.root) !== -1;
+  }
+  _checkBalance(node) {
+    if (node === null) {
+      return 0; // A null tree is balanced with height 0
+    }
+
+    // Check the balance of left and right subtrees
+    let leftHeight = this._checkBalance(node.left);
+    if (leftHeight === -1) {
+      return -1; // Left subtree is not balanced
+    }
+
+    let rightHeight = this._checkBalance(node.right);
+    if (rightHeight === -1) {
+      return -1; // Right subtree is not balanced
+    }
+
+    // If the difference in heights is more than 1, the tree is not balanced
+    if (Math.abs(leftHeight - rightHeight) > 1) {
+      return -1;
+    }
+
+    // Return the height of the tree
+    return Math.max(leftHeight, rightHeight) + 1;
+  }
 
   /** Further Study!
    * findSecondHighest(): Find the second highest value in the BST, if it exists.
    * Otherwise return undefined. */
 
-  findSecondHighest() {}
+  findSecondHighest() {
+    if (
+      this.root === null ||
+      (this.root.left === null && this.root.right === null)
+    ) {
+      return undefined; // No second highest value if the tree is empty or has only one node
+    }
+
+    let current = this.root;
+    let parent = null;
+
+    // Traverse to the rightmost node to find the highest value
+    while (current.right !== null) {
+      parent = current;
+      current = current.right;
+    }
+
+    // If the highest node has a left subtree, the second highest is the rightmost node of that subtree
+    if (current.left !== null) {
+      current = current.left;
+      while (current.right !== null) {
+        current = current.right;
+      }
+      return current.val;
+    }
+
+    // If the highest node does not have a left subtree, the parent is the second highest
+    return parent.val;
+  }
 }
 
 module.exports = BinarySearchTree;

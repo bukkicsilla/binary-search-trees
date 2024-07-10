@@ -135,8 +135,8 @@ describe("BFS", function () {
   });
 });
 
-/*describe("remove", function() {
-  it("remove should correctly remove a node with no children", function() {
+describe("remove", function () {
+  it("remove should correctly remove a node with no children", function () {
     let binarySearchTree = new BinarySearchTree();
     binarySearchTree
       .insert(15)
@@ -155,7 +155,7 @@ describe("BFS", function () {
     expect(binarySearchTree.root.left.left.right).toBe(null);
   });
 
-  it("remove should correctly remove a node with one child", function() {
+  it("remove should correctly remove a node with one child", function () {
     let binarySearchTree = new BinarySearchTree();
     binarySearchTree
       .insert(15)
@@ -177,7 +177,7 @@ describe("BFS", function () {
     expect(binarySearchTree.root.right.left).toBe(null);
   });
 
-  it("remove should correctly remove a node with two children", function() {
+  it("remove should correctly remove a node with two children", function () {
     let binarySearchTree = new BinarySearchTree();
     binarySearchTree
       .insert(15)
@@ -205,7 +205,7 @@ describe("BFS", function () {
     expect(binarySearchTree.root.right.right.left.val).toBe(30);
   });
 
-  it("should remove a node with two children and handle the children of the removed node", function() {
+  it("should remove a node with two children and handle the children of the removed node", function () {
     var binarySearchTree = new BinarySearchTree();
     binarySearchTree
       .insert(22)
@@ -225,8 +225,8 @@ describe("BFS", function () {
   });
 });
 
-describe("isBalanced", function() {
-  it("checks if it is balanced", function() {
+describe("isBalanced", function () {
+  it("checks if it is balanced", function () {
     var binarySearchTree = new BinarySearchTree();
     binarySearchTree.insert(15);
     binarySearchTree.insert(20);
@@ -244,8 +244,8 @@ describe("isBalanced", function() {
   });
 });
 
-describe("findSecondHighest", function() {
-  it("finds the 2nd largest", function() {
+describe("findSecondHighest", function () {
+  it("finds the 2nd largest", function () {
     var binarySearchTree = new BinarySearchTree();
     binarySearchTree.insert(15);
     binarySearchTree.insert(20);
@@ -256,4 +256,4 @@ describe("findSecondHighest", function() {
     var binarySearchTree2 = new BinarySearchTree();
     expect(binarySearchTree2.findSecondHighest()).toEqual(undefined);
   });
-});*/
+});
